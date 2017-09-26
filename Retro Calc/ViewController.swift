@@ -72,6 +72,13 @@ class ViewController: UIViewController {
     @IBAction func equalsPressed(sender:UIButton){
         processOperation(operation: currentOperation)
     }
+    @IBAction func clearPressed(sender: UIButton){
+        currentOperation = .Empty
+        result = ""
+        runningNumber = ""
+        leftValStr = ""
+        rightValStr = ""
+    }
     
     func processOperation(operation:Operation) {
         playSound()
@@ -118,7 +125,7 @@ class ViewController: UIViewController {
         
         if sender.tag != -100{
             runningNumber += "\(sender.tag)"
-            display.text = runningNumber
+            display.text = "\(Int(runningNumber)!)"
         }
         
     }
